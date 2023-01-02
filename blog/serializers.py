@@ -9,7 +9,7 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = (
             'id',
-            'nane'
+            'name'
         )
         
         
@@ -22,7 +22,7 @@ class BlogSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'content',
-            'category',
+            'category_id',
             'is_published',
             'created_date',            
         )
