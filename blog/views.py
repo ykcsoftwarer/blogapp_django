@@ -5,6 +5,10 @@ from .models import Category
 
 # Create your views here.
 
+from .serializers import C
+
+
+
 class CategoryView(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = None
