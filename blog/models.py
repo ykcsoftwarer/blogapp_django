@@ -11,6 +11,10 @@ class Category(models.Model):
 
 
 class Blog(models.Model):
+    # CHOICES = (
+    #     ('p', 'Published'),
+    #     ('d', 'Draft')
+    # )
     title = models.CharField(max_length=100)
     content = models.TextField(blank=True)
     category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
@@ -19,5 +23,5 @@ class Blog(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return self.name
+        return self.title
     
