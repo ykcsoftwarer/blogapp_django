@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import Category
+from .models import Category, Blog
 
 
-class categorySerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     
     
     class Meta:
@@ -13,4 +13,17 @@ class categorySerializer(serializers.ModelSerializer):
         )
         
         
-        
+class BlogSerializer(serializers.ModelSerializer):
+    category = serializers.StringRelatedField()
+    category_id = serializers.IntegerField(write_only=True)
+    class Meta:
+        model = Category
+        fields = (
+            'id',
+            'title',
+            'content',
+            'category',
+            'is_published',
+            'created_date',            
+        )
+    
